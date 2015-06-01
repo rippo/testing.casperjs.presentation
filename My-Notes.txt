@@ -1,0 +1,25 @@
+1. DEMO 1
+
+   Create grab.js 
+   csp-pres-00-grab
+   On Grab Demo inside create
+
+  viewportSize: {
+        width: 960,
+        height: 600
+  }
+
+  Run it
+  
+ 2. TEST 01 - First Test
+
+   Create test01.js in .\Tests\Test.Samples\test01.js
+   csp-pres-01-grab
+   On Grab Demo inside create
+
+  viewportSize: {
+        width: 960,
+        height: 600
+  }
+
+  Run it 

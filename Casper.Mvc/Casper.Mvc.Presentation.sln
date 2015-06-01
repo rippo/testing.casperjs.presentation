@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Casper.Mvc", "Casper.Mvc\Casper.Mvc.csproj", "{29436F5A-34DD-4ED8-B68D-3D1D68C9EE79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Casper Tests", "Casper Tests", "{CB11A1FC-6540-43EF-B773-86AA9C06CDFE}"
+	ProjectSection(SolutionItems) = preProject
+		..\grab.js = ..\grab.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Page.Object.Pattern", "Page.Object.Pattern", "{8F3C5FEF-9962-4AA6-BD03-4361DC92E270}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pages", "Pages", "{F78AA86B-F8CB-4E0A-A869-608331DCF91C}"
+	ProjectSection(SolutionItems) = preProject
+		..\Tests\Page.Object.Pattern\Pages\Page.Account.js = ..\Tests\Page.Object.Pattern\Pages\Page.Account.js
+		..\Tests\Page.Object.Pattern\Pages\Page.Login.js = ..\Tests\Page.Object.Pattern\Pages\Page.Login.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C7C8F09E-B93A-4EF0-BCBB-FEBEE36F8F6F}"
+	ProjectSection(SolutionItems) = preProject
+		..\Tests\Page.Object.Pattern\Tests\Test.Login.As.Test1.js = ..\Tests\Page.Object.Pattern\Tests\Test.Login.As.Test1.js
+		..\Tests\Page.Object.Pattern\Tests\Test.Login.As.Test2.js = ..\Tests\Page.Object.Pattern\Tests\Test.Login.As.Test2.js
+		..\Tests\Page.Object.Pattern\Tests\Test.Login.As.Unknown.js = ..\Tests\Page.Object.Pattern\Tests\Test.Login.As.Unknown.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DD0350E4-CF41-4702-976B-6BA63B407371}"
+	ProjectSection(SolutionItems) = preProject
+		..\Tests\Test.Samples\test01.js = ..\Tests\Test.Samples\test01.js
+		..\Tests\Test.Samples\test02.js = ..\Tests\Test.Samples\test02.js
+		..\Tests\Test.Samples\test03.js = ..\Tests\Test.Samples\test03.js
+		..\Tests\Test.Samples\test04.js = ..\Tests\Test.Samples\test04.js
+		..\Tests\Test.Samples\test05.js = ..\Tests\Test.Samples\test05.js
+		..\Tests\Test.Samples\test06.js = ..\Tests\Test.Samples\test06.js
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29436F5A-34DD-4ED8-B68D-3D1D68C9EE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29436F5A-34DD-4ED8-B68D-3D1D68C9EE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29436F5A-34DD-4ED8-B68D-3D1D68C9EE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29436F5A-34DD-4ED8-B68D-3D1D68C9EE79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8F3C5FEF-9962-4AA6-BD03-4361DC92E270} = {CB11A1FC-6540-43EF-B773-86AA9C06CDFE}
+		{F78AA86B-F8CB-4E0A-A869-608331DCF91C} = {8F3C5FEF-9962-4AA6-BD03-4361DC92E270}
+		{C7C8F09E-B93A-4EF0-BCBB-FEBEE36F8F6F} = {8F3C5FEF-9962-4AA6-BD03-4361DC92E270}
+		{DD0350E4-CF41-4702-976B-6BA63B407371} = {CB11A1FC-6540-43EF-B773-86AA9C06CDFE}
+	EndGlobalSection
+EndGlobal
