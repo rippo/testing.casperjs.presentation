@@ -7,7 +7,7 @@ casper.test.begin('Wizard', 101, function (test) {
         loop.push(i);
     }
 
-    casper.start("http://localhost:43503/wizard/index/1");
+    casper.start("http://localhost:43502/wizard/index/1");
 
     //notice loop forEach is inside a casper function...
     casper.waitForSelector("input[name='Answer']", function () {

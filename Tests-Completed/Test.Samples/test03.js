@@ -1,6 +1,6 @@
 casper.test.begin('Contact Page', 5, function (test) {
 
-    casper.start("http://localhost:43503/home/contact", function () {
+    casper.start("http://localhost:43502/home/contact", function () {
         test.assertTitle("Contact - CasperJS Mvc");
         test.assertExists('form[action="/home/contact"]');
 
@@ -20,7 +20,7 @@ casper.test.begin('Contact Page', 5, function (test) {
     casper.waitForSelector('#EmailAddress', function() {
         test.assertTextExists("The Email Address field is not a valid e-mail address", "Email not valid is shown");
         this.fillSelectors('form', {
-            "input[name='EmailAddress']": 'test@test.com'
+            "input[name='EmailAddress']": ''
         }, true);
     });
 

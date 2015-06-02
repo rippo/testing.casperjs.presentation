@@ -59,7 +59,7 @@ CasperJS is a navigation scripting & testing utility written in Javascript that 
 
 ---
 
-# Hands on Agenda
+# Agenda
 
 1. Getting setup
 
@@ -103,11 +103,13 @@ $ explorer %APPDATA%\npm\node_modules\casperjs\node_modules\phantomjs\lib\phanto
 
 ---
 
-#Demo 1 - Screen Grab
+#Screen Grab
 
-* CasperJS is also great at screen scraping!
+* CasperJS is not just a testing tool it is also great at screen scraping!
 
 * It can also take screen shots at different resolutions         
+        
+##Demo  
 ---
 
 #How I found this useful...
@@ -150,40 +152,24 @@ Test your css selector by using this quick script
 
 [Css Selector Tester](https://chrome.google.com/webstore/detail/css-selector-tester/bbklnaodgoocmcdejoalmbjihhdkbfon)
 
-On the home page try out 
+We can use the css selector to find DOM elements 
 
 `````css
 ul > li:nth-child(2) > a
 `````
-
-OR
-
-````css
-a[href='/home/about']
-````
 
 ---
 
 
 #Test 02 - Navigation test
 
-DEMO.
+##Demo
 
 ---
 
 #Test 03 - Fill in a form
 
-Copy `\_test_template.js` and rename to `test03.js`, we want 5 tests for the contact form:-
-
-* start with `casper.start('http://localhost:43502/home/contact');`
-* assert the title is correct
-* assert the form exists
-* submit the form with just the name filled in
-* assert an error comes back
-* submit the form with an invalid email address
-* assert an error comes back
-* submit the form with an valid email address
-* assert we are showing the thank you page
+##Demo
 
 #### Spoiler alert...
 
@@ -205,13 +191,7 @@ casper.waitForSelector('#EmailAddress', ...
 
 #Test 04 - UI Timings
 
-Copy `\_test_template.js` and rename to `test04.js`, we want to test the visibility of the modal window:-
-
-* start with `casper.start('http://localhost:43502/Timings');`
-* assert button exists
-* click the button
-* capture the screen
-* assert modal window is visible
+##DEMO
 
 #### Spoiler alert...
 
@@ -230,13 +210,7 @@ test.assertVisible("#myModal");
 
 #Test 05 - Evaluate
 
-Copy `\_test_template.js` and rename to `test05.js`, we want to test the modal window:-
-
-* start with `http://localhost:43502/Evaluate`
-* change the dropdown list to `United Kingdom`
-* assert the text exists `Selepcted country code: UK`
-* change the dropdown list to `Spain`
-* assert the text exists `Selected country code: ES`
+##Demo        
 
 #### Spoiler alert...
 
@@ -244,23 +218,21 @@ Copy `\_test_template.js` and rename to `test05.js`, we want to test the modal w
 // run some javacript/jquery code
 casper.thenEvaluate(...
 ````
-
-You should get 2 passing tests
-
 ---
 
 #Test 06 - Looping
 
-Copy `\_test_template.js` and rename to `test06.js`, we want to test the wizard:-
-
 * set up an array of 50 integers
-* start with `http://localhost:43502/wizard/index/1`
 * loop through array
    * assert title is `Wizard Step: **i** - CasperJS Mvc  
    * submit form without filling in field
    * assert validation message is shown
    * submit form with any answer
 * assert finished page is shown
+    
+####SHOW SITE IN BROWSER!        
+
+##Demo        
 
 #### Spoiler alert...
 
@@ -271,24 +243,33 @@ casper.then ...
 
 ````
 
-You should get 101 passing tests
+We should get 101 passing tests
 
 
 ---
 
 #and finally...
 
-- ##Run all tests in a directory
-
+##Run all tests in a directory (includes sub dirs)
 ````bat
-$ casperjs test ./tests/test.samples
+$ casperjs test .
 ````
 
+##XUnit output (good for TeamCity etc)
+````bat
+$ casperjs test --xunit=1.xml .
+````
+
+##Fail fast
+````bat
+$ casperjs test --fail-fast .
+````
+        
 ---
 
-#If you have time
+#If we have time...
 
-##Check out the page object pattern...
+##Check out the page object pattern
 
 ````bat
 casperjs --baseUrl="http://localhost:43502" test ./tests/page.object.pattern/tests

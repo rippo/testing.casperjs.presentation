@@ -1,25 +1,114 @@
 1. DEMO 1
 
-   Create grab.js 
-   csp-pres-00-grab
-   On Grab Demo inside create
+	Start IIS.BAT
+	Navigate to http://localhost:43502 and show site off
+	Create grab.js 
+	csp-pres-00-grab
 
-  viewportSize: {
-        width: 960,
-        height: 600
-  }
+	On Grab Demo inside create
 
-  Run it
+	viewportSize: {
+		width: 960,
+		height: 600
+	}
+
+	Run it
   
  2. TEST 01 - First Test
 
-   Create test01.js in .\Tests\Test.Samples\test01.js
-   csp-pres-01-grab
-   On Grab Demo inside create
+	Create test01.js in .\Tests\Test.Samples\test01.js
+	csp-pres-01-first-test
 
-  viewportSize: {
-        width: 960,
-        height: 600
-  }
+	Run it 
+	Slides
+	
+3. CSS Selector
 
-  Run it 
+	ul > li:nth-child(2) > a
+	a[href='/home/about']
+
+	
+4. Test 02 - Navigation Test
+
+	Create test02.js in .\Tests\Test.Samples\test02.js
+	csp-pres-02-nav-test
+
+	Run it 
+	Slides
+	
+5. Test 03	- Fill in a Form
+
+	Create test03.js in .\Tests\Test.Samples\test03.js
+	csp-pres-03-form
+
+	Run it SEE FAILURES
+
+	Add in 
+        this.fillSelectors('form', {
+            "input[name='ContactName']": 'Richard Wilde'
+        }, true);
+	
+	Run it SEE FAILURES
+	
+	Add in
+	csp-pres-03-form-02
+			The Email Address field is required
+			Email required required is shown
+			Fill in dodgy email address
+
+	Run it SEE FAILURES
+	
+	Add in
+	csp-pres-03-form-02
+			The Email Address field is not a valid e-mail address
+			Email validation message shown
+			Fill in correct email address
+
+	Run it SEE PASSES
+		
+6. 	TEST 04 - Timings
+
+	Create test04.js in \Tests\Test.Samples\test04.js 
+	csp-pres-04-timings
+	
+	Run it SEE FAILURES
+	See timings.jpg
+	
+	Add in 
+	casper.options.viewportSize = { width: 960, height: 600 };
+	Run it SEE FAILURES
+	See timings.jpg
+
+	change 100 to 200 on wait 
+	Run it SEE PASSES
+	See timings.jpg
+	
+	change 200 to 400 on wait 
+	Run it SEE PASSES
+	See timings.jpg	
+	
+	change to 
+	casper.waitUntilVisible("#myModal", function () {
+	Run it SEE PASSES
+	See timings.jpg	
+	
+7. TEST 05 - Evaluate
+
+	Create test05.js in \Tests\Test.Samples\test05.js 
+	csp-pres-05-evaluate-01
+	
+	Run it SEE FAILURES, NO tests ran!
+	
+	csp-pres-05-evaluate-02
+		United Kingdom
+		Change XX to UK
+	Run it SEE FAILURES, as 1/2 tests ran!
+		
+	csp-pres-05-evaluate-02
+		Spain
+		Change XX to ES
+	Run it SEE PASSES
+	
+8. TEST 06	- Looping
+
+	SHOW SITE FIRST!
