@@ -32,7 +32,7 @@ casper.test.begin('Wizard', 101, function (test) {
 
     });
 
-    casper.waitForUrl(/wizard\/finished/, function () {
+    casper.waitForUrl("/wizard/finished", function () {
         test.assertTitle("Finished - CasperJS Mvc");
     });
 

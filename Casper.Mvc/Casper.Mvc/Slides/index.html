@@ -84,20 +84,20 @@ CasperJS is a navigation scripting & testing utility written in Javascript that 
 1. You will need node http://nodejs.org/
 
 2. Open CMD prompt and install CasperJS (it bundles PhantomJs)
-````bat
+````DOS
 $ npm install casperjs -g
 ````
-````bat
+````DOS
 $ notepad %APPDATA%\npm\casperjs.cmd
 ````
 Goto http://tinyurl.com/casper-cmd and paste in the text and save
 
 4. Check casper is installed, it should return `1.1.0-beta3`.
-````bat
+````DOS
 $ casperjs --version
 ````
 5. To remove the unsafe js warning, downgrade phantomjs 1.9.8 to 1.9.7. Copy phantom.exe from the GIT root folder into the folder below 
-````bat
+````DOS
 $ explorer %APPDATA%\npm\node_modules\casperjs\node_modules\phantomjs\lib\phantom         
 ````
 
@@ -127,7 +127,7 @@ $ explorer %APPDATA%\npm\node_modules\casperjs\node_modules\phantomjs\lib\phanto
 ## What did we just do?##
 
 * we do not need to create a new casper instance (allows us to chain tests)
-````js
+````JavaScript
 casper.test.begin('Home Page Tests', 3, function (test) {
 ````
 * when the page loaded, we asserted the title was `Home - CasperJS Mvc`
@@ -135,7 +135,7 @@ casper.test.begin('Home Page Tests', 3, function (test) {
 * we then asserted that two pieces of text existed
 
 * we ran the tests and informed CasperJS we were done 
-````js
+````JavaScript
     casper.run(function () {
         test.done();
     });
@@ -154,9 +154,9 @@ Test your css selector by using this quick script
 
 We can use the css selector to find DOM elements 
 
-`````css
+````css
 ul > li:nth-child(2) > a
-`````
+````
 
 ---
 
@@ -173,7 +173,7 @@ ul > li:nth-child(2) > a
 
 #### Spoiler alert...
 
-````javascript
+````JavaScript
 // assert a selector exists
 test.assertExists('form[action="/home/contact"]');
 
@@ -195,7 +195,7 @@ casper.waitForSelector('#EmailAddress', ...
 
 #### Spoiler alert...
 
-````javascript
+````JavaScript
 // does a selector exist?
 test.assertExists("button#btnModal", "Launch button is shown");
 
@@ -214,8 +214,8 @@ test.assertVisible("#myModal");
 
 #### Spoiler alert...
 
-````javascript
-// run some javacript/jquery code
+````JavaScript
+// run some javascript/jquery code
 casper.thenEvaluate(...
 ````
 ---
@@ -236,7 +236,7 @@ casper.thenEvaluate(...
 
 #### Spoiler alert...
 
-````javascript
+````JavaScript
 //  should the loop be inside a casper function?
 casper.then ...
  loop.forEach(function (item) ...
@@ -251,35 +251,40 @@ We should get 101 passing tests
 #and finally...
 
 ##Run all tests in a directory (includes sub dirs)
-````bat
+````DOS
 $ casperjs test .
 ````
 
 ##XUnit output (good for TeamCity etc)
-````bat
+````DOS
 $ casperjs test --xunit=1.xml .
 ````
 
 ##Fail fast
-````bat
+````DOS
 $ casperjs test --fail-fast .
 ````
         
 ---
 
-#If we have time...
+#Page Object Pattern
 
-##Check out the page object pattern
-
-````bat
-casperjs --baseUrl="http://localhost:43502" test ./tests/page.object.pattern/tests
+````
+Within your web application UI there are areas that your tests interact with. A Page Object simply
+models these as objects within the test code. This reduces the amount of duplicated code
+and means that if the UI changes, the fix need only be applied in one place.
 ````
 
+### Some useful links
   - https://code.google.com/p/selenium/wiki/PageObjects
   - http://martinfowler.com/bliki/PageObject.html
- 
-``Within your web app's UI there are areas that your tests interact with. A Page Object simply models these as objects within the test code. This reduces the amount of duplicated code and means that if the UI changes, the fix need only be applied in one place``
-
+  - http://jsebfranck.blogspot.co.uk/2014/03/page-object-pattern-with-casperjs.html
+        
+###DEMO        
+````DOS
+casperjs --baseUrl="http://localhost:43502" test Test.login.as.test1.js
+````
+        
 ---
 
 #Check out these useful links
@@ -291,11 +296,7 @@ casperjs --baseUrl="http://localhost:43502" test ./tests/page.object.pattern/tes
    - Test your css selector by using this quick script
    - http://ow.ly/Ci1Yq
 
-* ####CasperJS IDE (online and desktop version)
-   - Desktop version costs $9 
-   - https://ide.casperbox.com/
-
-* ####Page Object Pattern
+* ####CasperJS Page Object Pattern
   - http://jsebfranck.blogspot.co.uk/2014/03/page-object-pattern-with-casperjs.html
 
 ---
@@ -304,7 +305,7 @@ class: center, middle
 
 #Thanks
 
-##Hope you found it useful
+##Hope you found it useful!
 
 Ask me questions on twitter @rippo
     </textarea>

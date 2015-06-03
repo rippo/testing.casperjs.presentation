@@ -20,11 +20,11 @@ casper.test.begin('Contact Page', 5, function (test) {
     casper.waitForSelector('#EmailAddress', function() {
         test.assertTextExists("The Email Address field is not a valid e-mail address", "Email not valid is shown");
         this.fillSelectors('form', {
-            "input[name='EmailAddress']": ''
+            "input[name='EmailAddress']": 'richard@wildesoft.net'
         }, true);
     });
 
-    casper.waitForUrl(/home\/thanks/, function () {
+    casper.waitForUrl("/home/thanks", function () {
         test.assertTextExists("Thanks", "Thanks header is shown");
     });
 
