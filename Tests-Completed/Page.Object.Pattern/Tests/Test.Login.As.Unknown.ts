@@ -2,7 +2,7 @@ phantom.page.injectJs('../Pages/Page.Login.js');
 
 casper.test.begin('when I login as an unknown user', function (test : Tester) {
 
-    var loginPage = new LoginPage();
+    var loginPage : LoginPage = new LoginPage();
 
     loginPage.startOnLoginPage();
     loginPage.checkPage();

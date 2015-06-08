@@ -1,3 +1,11 @@
+interface SearchPage {
+    checkPage : Function;
+    fillForm : Function;
+    submitForm : Function;
+    checkValidationMesaageIsShown : Function;
+    checkNumberResultsShown : Function;
+    
+}
 
 function SearchPage() {
 
