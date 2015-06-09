@@ -1,23 +1,23 @@
 - trigger: csp-pres-02-nav-test
   description: PRESENTATION - Casper TEST 02
   scope: javascript
-  mTime: 1433171132124
+  mTime: 1433316316680
   text: |
-        casper.test.begin('Navigation test', 4, function (test) { 
-         
-            casper.start("http://localhost:43502", function () { 
-                test.assertTitle("Home - CasperJS Mvc"); 
-                test.assertTextExists("Casper MVC", "Casper MVC is present on page"); 
-            }); 
-         
-            casper.thenClick('ul > li:nth-child(2) > a', function () { 
-                test.assertUrlMatch(/home\\/about/, "URL ends with Home/About"); 
-                test.assertTitle("About - CasperJS Mvc"); 
-            }); 
-         
-            casper.run(function () { 
-                test.done(); 
-            }); 
+        casper.test.begin('Navigation test', 4, function (test) {
+        
+            casper.start("http://localhost:43502", function () {
+                test.assertTitle("Home - CasperJS Mvc");
+                test.assertTextExists("Casper MVC", "Casper MVC is present on page");
+            });
+        
+            casper.thenClick('ul > li:nth-child(2) > a', function () {
+                test.assertUrlMatch("/home/about", "URL ends with Home/About");
+                test.assertTitle("About - CasperJS Mvc");
+            });
+        
+            casper.run(function () {
+                test.done();
+            });
         });
 
 - trigger: csp-pres-01-first-test
@@ -167,28 +167,28 @@
   scope: javascript
   mTime: 1433227373832
   text: |
-        casper.test.begin('Contact Page', 5, function (test) { 
-         
-            casper.start("http://localhost:43502/home/contact", function () { 
-                test.assertTitle("Contact - CasperJS Mvc", "Page title matches 'Contact - CasperJS Mvc'"); 
-                test.assertExists('form[action="/home/contact"]', "Contact form found"); 
-         
-                //FILL FORM 
-         
-            }); 
-             
-            //FILL FORM WITH INVALID EMAIL 
-             
-            //FILL FORM WITH VALID EMAIL 
-         
-            casper.waitForUrl("/home/thanks", function () { 
-                test.assertTextExists("Thanks", "Thanks H1 header is shown"); 
-            }, null, 1000); 
-         
-            casper.run(function () { 
-                test.done(); 
-            }); 
-        }); 
+        casper.test.begin('Contact Page', 5, function (test) {
+        
+            casper.start("http://localhost:43502/home/contact", function () {
+                test.assertTitle("Contact - CasperJS Mvc", "Page title matches 'Contact - CasperJS Mvc'");
+                test.assertExists('form[action="/home/contact"]', "Contact form found");
+        
+                //FILL FORM
+        
+            });
+            
+            //FILL FORM WITH INVALID EMAIL
+            
+            //FILL FORM WITH VALID EMAIL
+        
+            casper.waitForUrl("/home/thanks", function () {
+                test.assertTextExists("Thanks", "Thanks H1 header is shown");
+            }, null, 1000);
+        
+            casper.run(function () {
+                test.done();
+            });
+        });
         
 
 - trigger: csp-pres-03-form-02
@@ -196,11 +196,11 @@
   scope: javascript
   mTime: 1433227918048
   text: |
-        casper.waitForSelector('#EmailAddress', function() { 
-            test.assertTextExists("", ""); 
-            this.fillSelectors('form', { 
-                "input[name='EmailAddress']": '' 
-            }, true); 
+        casper.waitForSelector('#EmailAddress', function() {
+            test.assertTextExists("", "");
+            this.fillSelectors('form', {
+                "input[name='EmailAddress']": ''
+            }, true);
         });
 
 - scope: javascript
@@ -208,24 +208,24 @@
   description: PRESENTATION - Casper Timings
   mTime: 1433228912521
   text: |
-         
-        casper.test.begin('Timings tests', 2, function (test) { 
-         
-            casper.start('http://localhost:43502/timings'); 
-         
-            casper.then(function () { 
-                test.assertExists("button#btnModal", "Launch button is shown"); 
-                this.click("button#btnModal"); 
-            }); 
-         
-            casper.wait(100, function () { 
-                this.capture("timings.jpg"); 
-                test.assertVisible("#myModal"); 
-            }); 
-         
-            casper.run(function () { test.done(); }); 
-        }); 
-         
+        
+        casper.test.begin('Timings tests', 2, function (test) {
+        
+            casper.start('http://localhost:43502/timings');
+        
+            casper.then(function () {
+                test.assertExists("button#btnModal", "Launch button is shown");
+                this.click("button#btnModal");
+            });
+        
+            casper.wait(100, function () {
+                this.capture("timings.jpg");
+                test.assertVisible("#myModal");
+            });
+        
+            casper.run(function () { test.done(); });
+        });
+        
         
 
 - trigger: csp-pres-05-evaluate-01
@@ -233,15 +233,15 @@
   scope: javascript
   mTime: 1433231003530
   text: |
-        casper.test.begin('Evaluate tests', 2, function (test) { 
-         
-            casper.start('http://localhost:43502/evaluate'); 
-         
-            //DROP INTO DOM TO CHANGE DROPDOWN TO UK 
-         
-            //DROP INTO DOM TO CHANGE DROPDOWN TO ES 
-             
-            casper.run(function () { test.done(); }); 
+        casper.test.begin('Evaluate tests', 2, function (test) {
+        
+            casper.start('http://localhost:43502/evaluate');
+        
+            //DROP INTO DOM TO CHANGE DROPDOWN TO UK
+        
+            //DROP INTO DOM TO CHANGE DROPDOWN TO ES
+            
+            casper.run(function () { test.done(); });
         });
 
 - trigger: csp-pres-05-evaluate-02
@@ -249,13 +249,13 @@
   scope: javascript
   mTime: 1433231333128
   text: |
-        casper.thenEvaluate(function () { 
-            $('#CountryList').val('').change(); 
-        }); 
-         
-        casper.then(function () { 
-            test.assertTextExists("Selected country code: XX", "Selected country code: XX text exists"); 
-        }); 
+        casper.thenEvaluate(function () {
+            $('#CountryList').val('').change();
+        });
+        
+        casper.then(function () {
+            test.assertTextExists("Selected country code: XX", "Selected country code: XX text exists");
+        });
         
 
 - trigger: csp-pres-06-looping
@@ -263,44 +263,106 @@
   scope: javascript
   mTime: 1433233277652
   text: |
-        //Looping 
-        casper.test.begin('Wizard', 101, function (test) { 
-         
-            //initial 50 loops 
-            var loop = []; 
-            for (var i = 1; i <= 50; i++) { loop.push(i); } 
-         
-            casper.start("http://localhost:43502/wizard/index/1"); 
-         
-            //notice loop forEach is inside a casper function... 
-            casper.waitForSelector("input[name='Answer']", function () { 
-         
-                loop.forEach(function (item) { 
-         
-                    //All tests must be inside a casper function 
-                    casper.waitForSelector("input[name='Answer']", function () { 
-                        test.assertTitle("Wizard Step: " + item + " - CasperJS Mvc"); 
-                        this.fillSelectors('form', {}, true); 
-                    }); 
-         
-                    casper.waitForSelector("input[name='Answer']", function () { 
-                        test.assertTextExists("The Answer field is required", "Required validation message shown"); 
-                        this.fillSelectors('form', { 
-                            "input[name='Answer']": 'An answer' 
-                        }, true); 
-                    }); 
-         
-                }); 
-         
-            }); 
-         
-            casper.waitForUrl(/wizard\\/finished/, function () { 
-                test.assertTitle("Finished - CasperJS Mvc"); 
-            }); 
-         
-            casper.run(function () { 
-                test.done(); 
-            }); 
-         
+        //Looping
+        casper.test.begin('Wizard', 101, function (test) {
+        
+            //initial 50 loops
+            var loop = [];
+            for (var i = 1; i <= 50; i++) { loop.push(i); }
+        
+            casper.start("http://localhost:43502/wizard/index/1");
+        
+            //notice loop forEach is inside a casper function...
+            casper.waitForSelector("input[name='Answer']", function () {
+        
+                loop.forEach(function (item) {
+        
+                    //All tests must be inside a casper function
+                    casper.waitForSelector("input[name='Answer']", function () {
+                        test.assertTitle("Wizard Step: " + item + " - CasperJS Mvc");
+                        this.fillSelectors('form', {}, true);
+                    });
+        
+                    casper.waitForSelector("input[name='Answer']", function () {
+                        test.assertTextExists("The Answer field is required", "Required validation message shown");
+                        this.fillSelectors('form', {
+                            "input[name='Answer']": 'An answer'
+                        }, true);
+                    });
+        
+                });
+        
+            });
+        
+            casper.waitForUrl(/wizard\\/finished/, function () {
+                test.assertTitle("Finished - CasperJS Mvc");
+            });
+        
+            casper.run(function () {
+                test.done();
+            });
+        
+        });
+
+- trigger: csp-pres-08-events-01-success
+  description: ""
+  scope: javascript
+  mTime: 1433839247405
+  text: |
+        casper.test.begin('Events - Listeners', function (test) {
+        
+            casper.start(casper.cli.options.baseUrl, function () {
+                test.assertTitle("Home - CasperJS Mvc", "Page title is correct");
+                test.assertTextExists("Ariya Hidayat", "Ariya Hidayat is present on page");
+            });
+        
+            casper.run(function () {
+                test.done();
+                
+                //require('utils').dump(successes);
+                
+                successes.forEach(function(item){
+                    casper.echo(item.standard);
+                });
+            });
+        
+            var successes = [];
+        
+            casper.test.on("success", function(success) {
+                successes.push(success);
+            });
+            
+        });
+
+- trigger: csp-pres-08-events-02-failures
+  scope: javascript
+  mTime: 1433839367298
+  text: |
+        casper.options.viewportSize= { width:1024, height: 600};
+        
+        casper.test.begin('Events - Listeners', function (test) {
+        
+            casper.start(casper.cli.options.baseUrl, function () {
+                test.assertTitle("Home - CasperJS Mvc", "Page title is correct");
+                test.assertTextExists("Ariya Hidayat", "Ariya Hidayat is present on page");
+            });
+        
+            casper.then(function(){
+                test.assertTextExists("Richard wilde", "Richard Wilde present on page");
+            });        
+        
+            casper.then(function(){
+                test.assertTextExists("Fred wilde", "Fred Wilde present on page");
+            });        
+        
+        
+            casper.run(function () {
+                test.done();
+            });
+        
+        
+            casper.test.on("fail", function(failure) {
+                casper.capture(failure.message + "-fail.jpg")
+            });    
         });
 
