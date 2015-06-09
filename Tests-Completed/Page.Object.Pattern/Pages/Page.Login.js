@@ -6,37 +6,47 @@ var LoginPage = (function () {
         };
         this.fullLogin = function (username, password) {
             this.startOnLoginPage();
-            this.checkPage();
-            this.fillForm(username, password);
+            this.checkWeAreOnTheLoginPage();
+            this.fillInTheUsername(username);
+            this.fillInThePassword(password);
             this.submitForm();
         };
-        this.checkPage = function () {
+        this.checkWeAreOnTheLoginPage = function () {
             casper.waitForSelector("#Username", function () {
-                casper.test.assertUrlMatch('account', 'is on login page');
-                casper.test.assertExists('form', 'login page form has been found');
+                casper.test.assertUrlMatch('account', 'then check we are currently on the login page');
+                casper.test.assertExists('form', 'then check that the login page form has been found');
             });
         };
-        this.fillForm = function (username, password) {
-            casper.waitForSelector("#Username", function () {
+        this.fillInThePassword = function (password) {
+            casper.waitForSelector("#Password", function () {
                 casper.fillSelectors('form', {
-                    "input[name='Username']": username,
                     "input[name='Password']": password
                 }, false);
+                casper.test.assertExists('form input[name="Password"]', "then fill in the password with " + password);
+            });
+        };
+        this.fillInTheUsername = function (username) {
+            casper.waitForSelector("#Username", function () {
+                casper.fillSelectors('form', {
+                    "input[name='Username']": username
+                }, false);
+                casper.test.assertExists('form input[name="Username"]', "then fill in the username with " + username);
             });
         };
         this.submitForm = function () {
             casper.then(function () {
+                casper.test.assertExists('form input[type="submit"]', "then submit the login form");
                 casper.click('form input[type="submit"]');
             });
         };
-        this.checkUsernameValidation = function () {
+        this.checkUsernameValidationIsShown = function () {
             casper.waitForSelector("#Username", function () {
-                casper.test.assertTextExists("The Username field is required", "username required message shown");
+                casper.test.assertTextExists("The Username field is required", "then check the username required message is shown");
             });
         };
-        this.checkPasswordValidation = function () {
+        this.checkPasswordValidationIsShown = function () {
             casper.waitForSelector("#Username", function () {
-                casper.test.assertTextExists("The Password field is required", "password required message shown");
+                casper.test.assertTextExists("The Password field is required", "then check the password required message is shown");
             });
         };
     }

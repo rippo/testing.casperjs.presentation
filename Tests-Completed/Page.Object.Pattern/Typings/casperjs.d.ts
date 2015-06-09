@@ -31,7 +31,7 @@ interface Casper extends EventEmitter {
 	cli: any;
 	click(selector: string): boolean;
 	clickLabel(label: string, tag?: string): boolean;
-	capture(targetFilePath: string, clipRect: ClipRect): Casper;
+	capture(targetFilePath: string, clipRect?: ClipRect): Casper;
 	captureBase64(format: string): string;
 	captureBase64(format: string, area: string): string;
 	captureBase64(format: string, area: ClipRect): string;

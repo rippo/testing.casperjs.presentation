@@ -7,11 +7,11 @@ casper.test.begin('Login as test1@test.com', function (test) {
     casper.start(casper.cli.options.baseUrl + '/account');
 
     casper.then(function() {    
-        login.login("test1@test.com", "abcdefg");
+        login.fullLogin("test1@test.com", "abcdefg");
     });
     
     casper.then(function() {
-        test.assert(login.checkSuccessfullLogin(), "Test1 successfully logged in");
+        test.assert(login.checkWeAreOntheAccountPage(), "Test1 successfully logged in");
     });
     
     casper.run(function () {

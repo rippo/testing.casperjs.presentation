@@ -6,20 +6,22 @@ casper.test.begin('Login as an unknown user', function (test) {
     
     casper.start(casper.cli.options.baseUrl + '/account');
 
+    //submit blank form
     casper.then(function() {    
         login.submitForm();
     });
     
+    //submit unkown user
     casper.then(function() {
-        test.assert(login.checkUsernameValidation(), "Username required msg is shown");
-        test.assert(login.checkPasswordValidation(), "Password required msg is shown");
-        login.typeUsername("zzz");
-        login.typePassword("abcdef");
+        test.assert(login.checkUsernameValidationIsShown(), "Username required msg is shown");
+        test.assert(login.checkPasswordValidationIsShown(), "Password required msg is shown");
+        login.fillInTheUsername("zzz");
+        login.fillInThePassword("abcdef");
         login.submitForm();
     });
 
     casper.then(function() {
-        test.assert(login.checkUsernameValidation(), "Username not found msg is shown");
+        test.assert(login.checkUsernameValidationIsShown(), "Username not found msg is shown");
     });
     
     casper.run(function () {

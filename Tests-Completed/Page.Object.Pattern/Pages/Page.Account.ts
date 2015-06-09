@@ -1,46 +1,48 @@
-interface SearchPage {
-    checkPage : Function;
-    fillForm : Function;
-    submitForm : Function;
-    checkValidationMesaageIsShown : Function;
-    checkNumberResultsShown : Function;
-    
-}
+class SearchPage implements ISearchPage {
 
-function SearchPage() {
-
-    this.checkPage = function () {
+    checkWeAreOnTheSearchPage = function () {
         casper.waitForSelector("#Query", function () {
-            casper.test.assertUrlMatch('account/search', 'is on search page');
-            casper.test.assertTextExists('Search', 'search title found');
+            casper.test.assertUrlMatch('account/search', 'then check we are on the search page');
+            casper.test.assertTextExists('Search', 'then check the search page has been found');
         });
     };
 
-    this.fillForm = function (query : string) {
+    fillInTheSearchBox = function (query : string) {
         casper.then(function () {
             this.fillSelectors('form', {
                 "input[name='Query']": query
             }, false);
+            casper.test.assertExists('form input[name="Query"]', "then fill in the search box with '" + query + "'");
         });
     };
 
-    this.submitForm = function () {
+    submitForm = function () {
         casper.then(function () {
+            casper.test.assertExists('form input[type="submit"]', "then submit the search form");
             this.click('form input[type="submit"]', 'search button clicked');
         });
     };
 
-    this.checkValidationMesaageIsShown = function () {
+    checkValidationMesaageIsShown = function () {
         casper.waitForSelector("#Query", function () {
-            casper.test.assertTextExists('Enter a search term', 'validation message shown');
+            casper.test.assertTextExists('Enter a search term', 'then check the search term required message is shown');
         });
     };
 
-    this.checkNumberResultsShown = function (expectedCount : number) {
+    checkNumberResultsShown = function (expectedCount : number) {
         casper.waitForSelector("table#results ", function () {
-            casper.test.assertTextExists('Results', 'results are displayed');
-            casper.test.assertElementCount('table#results > tbody > tr', expectedCount, expectedCount + ' names have been found');
+            casper.test.assertTextExists('Results', 'then check that the results table is displayed');
+            casper.test.assertElementCount('table#results > tbody > tr', expectedCount, "then check that " + expectedCount + ' name(s) have been found');
         });
     };
 
+}
+
+interface ISearchPage {
+    checkWeAreOnTheSearchPage : Function;
+    fillInTheSearchBox : Function;
+    submitForm : Function;
+    checkValidationMesaageIsShown : Function;
+    checkNumberResultsShown : Function;
+    
 }

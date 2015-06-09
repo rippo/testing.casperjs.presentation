@@ -1,12 +1,12 @@
 function LoginPage() {
 
-    this.typeUsername = function(username) {
+    this.fillInTheUsername = function(username) {
         casper.fillSelectors('form', {
             "input[name='Username']": username
         }, false);
     };
     
-    this.typePassword = function(password) {
+    this.fillInThePassword = function(password) {
         casper.fillSelectors('form', {
             "input[name='Password']": password
         }, false);
@@ -18,25 +18,25 @@ function LoginPage() {
         });
     };
 
-    this.login = function(username, password) {
-        this.typeUsername(username);
-        this.typePassword(password);
+    this.fullLogin = function(username, password) {
+        this.fillInTheUsername(username);
+        this.fillInThePassword(password);
         this.submitForm();
     };
     
-    this.checkUsernameValidation = function() {
+    this.checkUsernameValidationIsShown = function() {
         return casper.evaluate(function() {
              return $("span[data-valmsg-for='Username']").is(":visible");
         });
     };
     
-    this.checkPasswordValidation = function () {
+    this.checkPasswordValidationIsShown = function () {
         return casper.evaluate(function() {
              return $("span[data-valmsg-for='Password']").is(":visible");
         });
     };
 
-    this.checkSuccessfullLogin = function () {
+    this.checkWeAreOntheAccountPage = function () {
         return casper.evaluate(function() {
              return $("h2").html() === "Search";
         });

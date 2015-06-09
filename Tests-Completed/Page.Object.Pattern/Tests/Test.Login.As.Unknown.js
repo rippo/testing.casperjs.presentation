@@ -1,20 +1,17 @@
 phantom.page.injectJs('../Pages/Page.Login.js');
-casper.test.begin('when I login as an unknown user', function (test) {
+casper.test.begin('Scenario: When I try to login as an unknown user', function (test) {
     var loginPage = new LoginPage();
     loginPage.startOnLoginPage();
-    loginPage.checkPage();
-    loginPage.fillForm('', '');
+    loginPage.checkWeAreOnTheLoginPage();
     loginPage.submitForm();
-    loginPage.checkUsernameValidation();
-    loginPage.checkPasswordValidation();
-    loginPage.checkPage();
-    loginPage.fillForm('unknown@test.com', '');
+    loginPage.checkUsernameValidationIsShown();
+    loginPage.checkPasswordValidationIsShown();
+    loginPage.fillInTheUsername('unknown@test.com');
     loginPage.submitForm();
-    loginPage.checkPasswordValidation();
-    loginPage.checkPage();
-    loginPage.fillForm('unknown@test.com', 'test');
+    loginPage.checkPasswordValidationIsShown();
+    loginPage.fillInThePassword('test');
     loginPage.submitForm();
-    loginPage.checkPage();
+    loginPage.checkWeAreOnTheLoginPage();
     casper.run(function () {
         test.done();
     });

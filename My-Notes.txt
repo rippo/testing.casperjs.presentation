@@ -178,11 +178,45 @@
 	Pretty fast!
 	
 	Slides
+
+
+----------------------------------------------------
+9. TEST 07	- Command Line Arguments
+----------------------------------------------------
+
+	Create test07.js in \Tests\Test.Samples\test06.js 
+	csp-pres-01-first-test
 	
+	change the http://localhost to
+	casper.cli.options.baseUrl
 	
+	Run it
+	
+	Slides
+
+
+----------------------------------------------------
+10. Test 08 - Events/Listeners
+----------------------------------------------------
+
+	Create test08.js in \Tests\Test.Samples\test06.js 
+	csp-pres-08-events-01-success
+	
+	Run it
+	
+	csp-pres-08-events-02-fail
+	
+	Run it
+	
+	move 2 failure tests  together, dele jpgs
+	
+	Run it
+
+	Slides
+
 	
 ----------------------------------------------------
-9. Finally
+11. Finally
 ----------------------------------------------------
 
 	Run	all tests in DIR
@@ -194,9 +228,46 @@
 	Change test02 to have failure
 	Fail-Fast
 	
+	Slides
 	
 	
 ----------------------------------------------------
-10. Page Object pattern
+11. Page Object pattern
 ----------------------------------------------------
+
+	Show site for account
+	login as test1@test.com, search a then b
+	login as test2@test.com, search a
+
+	Switch to @code
+	
+	Show app.ts
+	Show Typings folder
+
+	Show pages/Page.Login.ts
+	Show test/test.login.as.unknown.ts
+	
+	run test.login.as.unknown.ts
+	
+	Show pages/Page.Account.ts
+	Show test/test.login.as.test1.ts
+	Show test/test.login.as.test2.ts
+	
+	run both tests
+	
+	Benefits of @code + typescript
+	Full intelli-sense for casper functions
+	Full intelli-sense for my own code
+	
+	run all tests
+
+----------------------------------------------------
+12. Page Object pattern no asserts in page objects
+----------------------------------------------------
+
+	show code
+	run it
+	
+	
+	
 	

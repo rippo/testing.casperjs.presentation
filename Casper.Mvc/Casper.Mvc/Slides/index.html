@@ -65,17 +65,9 @@ CasperJS is a navigation scripting & testing utility written in Javascript that 
 
 2. Screen grab demo
 
-3. Test 1 - First test
-
-4. Test 2 - Navigation
-
-5. Test 3 - Fill in a form
-
-6. Test 4 - Waiting for the UI
-
-7. Test 5 - Evaluate 
-
-8. Review Page Object Pattern
+3. Testing scenarios
+        
+4. Review Page Object Pattern (with typescript and @code)
 
 ---
 
@@ -247,7 +239,34 @@ We should get 101 passing tests
 
 
 ---
+        
+#Test 07 - Command Line Args
+        
+##Demo        
 
+#### Spoiler alert...
+````DOS
+$ casperjs test --baseUrl="http://localhost:43502 test07.js
+````
+
+````JavaScript
+casper.cli.options.baseUrl
+````
+        
+---
+        
+#Test 08 - Events and Listeners
+        
+##Demo        
+    
+#### Spoiler alert...
+````JavaScript
+    casper.test.on("success", function(success) {
+        successes.push(success);
+    });
+````        
+---
+        
 #and finally...
 
 ##Run all tests in a directory (includes sub dirs)
