@@ -294,7 +294,7 @@
         
             });
         
-            casper.waitForUrl(/wizard\\/finished/, function () {
+            casper.waitForUrl(/wizard\/finished/, function () {
                 test.assertTitle("Finished - CasperJS Mvc");
             });
         
