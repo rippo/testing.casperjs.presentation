@@ -1,56 +1,61 @@
 class LoginPage implements ILoginPage {
 
-    startOnLoginPage = function () {
+    private usernameLocator = "#Username";
+    private passwordLocator = "#Password";
+    private submitButtonLocator = "form input[type='submit']";
+
+    startOnLoginPage = () => {
         //casper.echo("base url is : " + casper.cli.options.baseUrl);
         casper.start(casper.cli.options.baseUrl + '/account');
     };
 
-
-    checkWeAreOnTheLoginPage = function () {
-        casper.waitForSelector("#Username", function () {
+    checkWeAreOnTheLoginPage = () => {
+        casper.waitForSelector(this.usernameLocator, function () {
             casper.test.assertUrlMatch('account', 'then check we are currently on the login page');
             casper.test.assertExists('form', 'then check that the login page form has been found');
         });
     };
 
-    fillInThePassword = function (password : string) {
-        casper.waitForSelector("#Password", function () {
-            casper.fillSelectors('form', {
-                "input[name='Password']": password
-            }, false);
-            casper.test.assertExists('form input[name="Password"]', "then fill in the password with " + password);
+    fillInThePassword = (password : string) => {
+        casper.waitForSelector(this.passwordLocator, () => {
+            var params = {};
+            params[this.passwordLocator] = password;
+
+            casper.fillSelectors('form', params, false);
+            casper.test.assertExists(this.passwordLocator, "then fill in the password with " + password);
         });
     };
 
-    fillInTheUsername = function (username : string) {
-        casper.waitForSelector("#Username", function () {
-            casper.fillSelectors('form', {
-                "input[name='Username']": username
-            }, false);
-            casper.test.assertExists('form input[name="Username"]', "then fill in the username with " + username);
+    fillInTheUsername = (username : string) => {
+        casper.waitForSelector(this.usernameLocator,  () => {
+            var params = {};
+            params[this.usernameLocator] = username;
+
+            casper.fillSelectors('form', params, false);
+            casper.test.assertExists(this.usernameLocator, "then fill in the username with " + username);
         });
     };
 
-    submitForm = function () {
-        casper.then(function () {
-            casper.test.assertExists('form input[type="submit"]', "then submit the login form");
-            casper.click('form input[type="submit"]');
+    submitForm = () => {
+        casper.then(() => {
+            casper.test.assertExists(this.submitButtonLocator, "then submit the login form");
+            casper.click(this.submitButtonLocator);
         });
     };
 
-    checkUsernameValidationIsShown = function() {
-        casper.waitForSelector("#Username", function () {
+    checkUsernameValidationIsShown = () => {
+        casper.waitForSelector(this.usernameLocator, () => {
             casper.test.assertTextExists("The Username field is required", "then check the username required message is shown");
         });
     }
 
-    checkPasswordValidationIsShown = function () {
-        casper.waitForSelector("#Username", function () {
+    checkPasswordValidationIsShown = () => {
+        casper.waitForSelector(this.usernameLocator, () => {
             casper.test.assertTextExists("The Password field is required", "then check the password required message is shown");
         });
     }
 
-    fullLogin = function (username : string, password : string) {
+    fullLogin = (username : string, password : string) => {
         this.startOnLoginPage();
         this.checkWeAreOnTheLoginPage();
         this.fillInTheUsername(username);

@@ -1,38 +1,44 @@
 class SearchPage implements ISearchPage {
 
-    checkWeAreOnTheSearchPage = function () {
-        casper.waitForSelector("#Query", function () {
+    private queryControlLocator = "#Query";
+    private submitButtonLocator = "form input[type='submit']";
+    private tableLocator = "table#results";
+
+
+    checkWeAreOnTheSearchPage = () => {
+        casper.waitForSelector(this.queryControlLocator, () => {
             casper.test.assertUrlMatch('account/search', 'then check we are on the search page');
             casper.test.assertTextExists('Search', 'then check the search page has been found');
         });
     };
 
-    fillInTheSearchBox = function (query : string) {
-        casper.then(function () {
-            this.fillSelectors('form', {
-                "input[name='Query']": query
-            }, false);
-            casper.test.assertExists('form input[name="Query"]', "then fill in the search box with '" + query + "'");
+    fillInTheSearchBox = (query : string) => {
+        casper.then(() => {
+            var params = { };
+            params[this.queryControlLocator] = query;
+            
+            casper.fillSelectors('form', params, false);
+            casper.test.assertExists(this.queryControlLocator, "then fill in the search box with '" + query + "'");
         });
     };
 
-    submitForm = function () {
-        casper.then(function () {
-            casper.test.assertExists('form input[type="submit"]', "then submit the search form");
-            this.click('form input[type="submit"]', 'search button clicked');
+    submitForm = () => {
+        casper.then(() => {
+            casper.test.assertExists(this.submitButtonLocator, "then submit the search form");
+            casper.click(this.submitButtonLocator);
         });
     };
 
-    checkValidationMesaageIsShown = function () {
-        casper.waitForSelector("#Query", function () {
+    checkValidationMesaageIsShown = () => {
+        casper.waitForSelector(this.queryControlLocator, () => {
             casper.test.assertTextExists('Enter a search term', 'then check the search term required message is shown');
         });
     };
 
-    checkNumberResultsShown = function (expectedCount : number) {
-        casper.waitForSelector("table#results ", function () {
+    checkNumberResultsShown = (expectedCount : number) => {
+        casper.waitForSelector(this.tableLocator, () => {
             casper.test.assertTextExists('Results', 'then check that the results table is displayed');
-            casper.test.assertElementCount('table#results > tbody > tr', expectedCount, "then check that " + expectedCount + ' name(s) have been found');
+            casper.test.assertElementCount(this.tableLocator + ' > tbody > tr', expectedCount, "then check that " + expectedCount + ' name(s) have been found');
         });
     };
 
@@ -44,5 +50,4 @@ interface ISearchPage {
     submitForm : Function;
     checkValidationMesaageIsShown : Function;
     checkNumberResultsShown : Function;
-    
 }
