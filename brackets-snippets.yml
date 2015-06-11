@@ -1,5 +1,4 @@
 - trigger: csp-pres-02-nav-test
-  description: PRESENTATION - Casper TEST 02
   scope: javascript
   mTime: 1433316316680
   text: |
@@ -21,7 +20,6 @@
         });
 
 - trigger: csp-pres-01-first-test
-  description: PRESENTATION - Casper TEST 01
   scope: javascript
   mTime: 1432838130539
   text: |
@@ -41,7 +39,6 @@
 
 - trigger: csp-pres-00-grab
   scope: javascript
-  description: PRESENTATION - Casper GRAB
   mTime: 1432823268379
   text: |
         var casper = require('casper').create();
@@ -58,8 +55,6 @@
         casper.run();
 
 - trigger: cspfills
-  description: Casper Fill Selector
-  scope: javascript
   mTime: 1429120058623
   text: |
         ${1:this}.fillSelectors('${2:form}', {
@@ -69,7 +64,6 @@
 
 - scope: javascript
   trigger: csp-po-login
-  description: Casper Page Object Login
   mTime: 1429119810855
   text: |
         function LoginPage() {
@@ -124,7 +118,6 @@
         }
 
 - trigger: csptest
-  description: Casper Test
   scope: javascript
   mTime: 1429118995843
   text: |
@@ -143,7 +136,6 @@
         });
 
 - trigger: cspfulltest
-  description: Casper test suite full
   scope: javascript
   mTime: 1429118941818
   text: |
@@ -163,7 +155,6 @@
         });
 
 - trigger: csp-pres-03-form-01
-  description: PRESENTATION - Casper fill in a form
   scope: javascript
   mTime: 1433227373832
   text: |
@@ -192,7 +183,6 @@
         
 
 - trigger: csp-pres-03-form-02
-  description: PRESENTATION - Casper WaitForSelector
   scope: javascript
   mTime: 1433227918048
   text: |
@@ -205,7 +195,6 @@
 
 - scope: javascript
   trigger: csp-pres-04-timings
-  description: PRESENTATION - Casper Timings
   mTime: 1433228912521
   text: |
         
@@ -229,7 +218,6 @@
         
 
 - trigger: csp-pres-05-evaluate-01
-  description: PRESENTATION - Casper Evaluate
   scope: javascript
   mTime: 1433231003530
   text: |
@@ -245,7 +233,6 @@
         });
 
 - trigger: csp-pres-05-evaluate-02
-  description: PRESENTATION - Casper Evaluate 02
   scope: javascript
   mTime: 1433231333128
   text: |
@@ -259,7 +246,6 @@
         
 
 - trigger: csp-pres-06-looping
-  description: PRESENTATION - Casper looping
   scope: javascript
   mTime: 1433233277652
   text: |
@@ -294,7 +280,7 @@
         
             });
         
-            casper.waitForUrl(/wizard\/finished/, function () {
+            casper.waitForUrl("/wizard/finished", function () {
                 test.assertTitle("Finished - CasperJS Mvc");
             });
         
@@ -305,7 +291,6 @@
         });
 
 - trigger: csp-pres-08-events-01-success
-  description: ""
   scope: javascript
   mTime: 1433839247405
   text: |

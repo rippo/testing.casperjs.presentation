@@ -11,7 +11,7 @@ casper.test.begin('Login as an unknown user', function (test) {
         login.submitForm();
     });
     
-    //submit unkown user
+    //submit unknown user
     casper.then(function() {
         test.assert(login.checkUsernameValidationIsShown(), "Username required msg is shown");
         test.assert(login.checkPasswordValidationIsShown(), "Password required msg is shown");
