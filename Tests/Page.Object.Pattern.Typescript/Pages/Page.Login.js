@@ -1,6 +1,9 @@
+//Remember the term Page.Object does not necessasry need to represent an entire page
+//It could be a page object for a significant panel on your page!  
 var LoginPage = (function () {
     function LoginPage() {
         var _this = this;
+        //The locators for the page element should only be defined once.
         this.usernameLocator = "#Username";
         this.passwordLocator = "#Password";
         this.submitButtonLocator = "form input[type='submit']";
@@ -8,6 +11,9 @@ var LoginPage = (function () {
             //casper.echo("base url is : " + casper.cli.options.baseUrl);
             casper.start(casper.cli.options.baseUrl + '/account');
         };
+        //There are differences of opinion on whether page objects should include assertions
+        //  themselves, or just provide data for test scripts to do the assertions.
+        //I prefer this way as it seems to be easier to maintain and easier to read the test pages.
         this.checkWeAreOnTheLoginPage = function () {
             casper.waitForSelector(_this.usernameLocator, function () {
                 casper.test.assertUrlMatch('account', 'then check we are currently on the login page');
