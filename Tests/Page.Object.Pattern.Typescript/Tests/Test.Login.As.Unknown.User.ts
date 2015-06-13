@@ -1,3 +1,5 @@
+//Simple injects my page object into the DOM
+//  so it is availble for this test 
 phantom.page.injectJs('../Pages/Page.Login.js');
 
 casper.test.begin('Scenario: When I try to login as an unknown user', function (test : Tester) {
@@ -7,6 +9,7 @@ casper.test.begin('Scenario: When I try to login as an unknown user', function (
     loginPage.startOnLoginPage();
     loginPage.checkWeAreOnTheLoginPage();
 
+    //in effect submit a blank form
     loginPage.submitForm();
     loginPage.checkUsernameValidationIsShown();
     loginPage.checkPasswordValidationIsShown();
