@@ -180,6 +180,7 @@
 	Slides
 
 
+
 ----------------------------------------------------
 9. TEST 07	- Command Line Arguments
 ----------------------------------------------------
@@ -193,6 +194,7 @@
 	Run it
 	
 	Slides
+
 
 
 ----------------------------------------------------
@@ -214,9 +216,24 @@
 
 	Slides
 
+
+
+----------------------------------------------------
+11. Test 09 - Unit Testing
+----------------------------------------------------
+
+	Create test09.js in \Tests\Test.Samples\test09.js 
+	csp-pres-09-calc
+	
+	Run it using
+    casperjs test --includes=../../casper.mvc/casper.mvc/scripts/calculator.js test09.js    
+	
+	Slides
+
+
 	
 ----------------------------------------------------
-11. Finally
+12. Finally
 ----------------------------------------------------
 
 	Run	all tests in DIR
@@ -231,8 +248,9 @@
 	Slides
 	
 	
+    
 ----------------------------------------------------
-11. Page Object pattern
+13. Page Object pattern
 ----------------------------------------------------
 
 	Show site for account
@@ -261,13 +279,12 @@
 	
 	run all tests
 
+
+
 ----------------------------------------------------
-12. Page Object pattern no asserts in page objects
+14. Page Object pattern no asserts in page objects
 ----------------------------------------------------
 
 	show code
 	run it
-	
-	
-	
 	
