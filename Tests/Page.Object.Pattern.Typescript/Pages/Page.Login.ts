@@ -1,9 +1,9 @@
-//Remember the term Page.Object does not necessasry need to represent an entire page
+//Remember the term Page.Object does not necesssary need to represent an entire page
 //It could be a page object for a significant panel on your page!  
 
 class LoginPage implements ILoginPage {
 
-    //The locators for the page element should only be defined once.
+    //The locators for each page element should only be defined once.
     private usernameLocator = "#Username";
     private passwordLocator = "#Password";
     private submitButtonLocator = "form input[type='submit']";
@@ -16,7 +16,8 @@ class LoginPage implements ILoginPage {
 
     //There are differences of opinion on whether page objects should include assertions
     //  themselves, or just provide data for test scripts to do the assertions.
-    //I prefer this way as it seems to be easier to maintain and easier to read the test pages.
+    //I prefer this way as it seems to be easier to maintain and easier to read 
+    //  what the test pages are doing.
     checkWeAreOnTheLoginPage = () => {
         casper.waitForSelector(this.usernameLocator, function () {
             casper.test.assertUrlMatch('account', 'then check we are currently on the login page');
