@@ -3,16 +3,16 @@
   <head>
     <title>CasperJS - Hands On</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
     <style type="text/css">
-      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      @import url(./fonts/fonts.css);
 
       body { font-family: 'Droid Serif'; }
       h1, h2, h3 {
         font-family: 'Yanone Kaffeesatz';
         font-weight: normal;
       }
+            
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; font-size: 0.90em; }
       .remark-slide-content {
           /*padding: 0.5em 3em 0.5em 3em;*/
@@ -289,10 +289,7 @@ $ casperjs test --fail-fast .
 #Page Object Pattern
 .center[![](/slides/Page.Object.png)]
         
-###DEMO        
-````DOS
-casperjs --baseUrl="http://localhost:43502" test Test.login.as.test1.js
-````
+###SWITCH TO @CODE  
         
 ---
 
@@ -320,7 +317,7 @@ class: center, middle
 
 Ask me questions on twitter @rippo
     </textarea>
-    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
+    <script src="remark-latest.min.js" type="text/javascript">
     </script>
     <script type="text/javascript">
       var slideshow = remark.create({  highlightStyle: 'monokai'});
