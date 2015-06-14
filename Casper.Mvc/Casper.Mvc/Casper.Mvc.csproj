@@ -136,6 +136,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\Azure.pubxml" />
     <None Include="Properties\PublishProfiles\casper-testing.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -149,8 +150,10 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Slides\fonts\fonts.css" />
     <Content Include="Slides\index.html" />
     <Content Include="Slides\Page.Object.png" />
+    <Content Include="Slides\remark-latest.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -173,6 +176,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Search.cshtml" />
+    <Content Include="Slides\fonts\DroidSerif.woff" />
+    <Content Include="Slides\fonts\UbuntuMono-Bold.woff" />
+    <Content Include="Slides\fonts\UbuntuMono-Italic.woff" />
+    <Content Include="Slides\fonts\UbuntuMono-Regular.woff" />
+    <Content Include="Slides\fonts\YanoneKaffeesatz-Regular.woff" />
+    <Content Include="Slides\Page.Object.Src.Balsamiq.bmpr" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
