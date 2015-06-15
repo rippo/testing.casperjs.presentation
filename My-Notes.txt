@@ -222,11 +222,13 @@
 11. Test 09 - Unit Testing
 ----------------------------------------------------
 
-	Create test09.js in \Tests\Test.Samples\test09.js 
+    **DIFFERENT FOLDER**
+
+	Create test09.js in \Tests\Test.Samples\unit-tests\test09.js 
 	csp-pres-09-calc
 	
 	Run it using
-    casperjs test --includes=../../casper.mvc/casper.mvc/scripts/calculator.js test09.js    
+    casperjs test --includes=../../../casper.mvc/casper.mvc/scripts/calculator.js test09.js    
 	
 	Slides
 

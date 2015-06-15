@@ -10,7 +10,6 @@ casper.test.begin('Evaluate tests', 2, function (test) {
     casper.then(function () {
         test.assertTextExists("Selected country code: UK", "Selected country code: UK text exists");
     });
-    
 
     //DROP INTO DOM TO CHANGE DROPDOWN TO ES
     casper.thenEvaluate(function () {

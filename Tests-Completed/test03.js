@@ -15,18 +15,17 @@ casper.test.begin('Contact Page', 5, function (test) {
     casper.waitForSelector('#EmailAddress', function() {
         test.assertTextExists("The Email Address field is required", "Email required is shown");
         this.fillSelectors('form', {
-            "input[name='EmailAddress']": 'sdsds'
+            "input[name='EmailAddress']": 'qwert'
         }, true);
     });
     
     //FILL FORM WITH VALID EMAIL
     casper.waitForSelector('#EmailAddress', function() {
-        test.assertTextExists("The Email Address field is not a valid e-mail address", "Email validation msg shown");
+        test.assertTextExists("The Email Address field is not a valid e-mail address", "Email validation message shown");
         this.fillSelectors('form', {
             "input[name='EmailAddress']": 'richard@wildesoft.net'
         }, true);
     });
-    
 
     casper.waitForUrl("/home/thanks", function () {
         test.assertTextExists("Thanks", "Thanks H1 header is shown");

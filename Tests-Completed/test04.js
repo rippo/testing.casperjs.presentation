@@ -1,3 +1,4 @@
+casper.options.viewportSize = { width:960, height:600 }
 
 casper.test.begin('Timings tests', 2, function (test) {
 
@@ -8,7 +9,7 @@ casper.test.begin('Timings tests', 2, function (test) {
         this.click("button#btnModal");
     });
 
-    casper.wait(400, function () {
+    casper.waitUntilVisible("#myModal", function () {
         this.capture("timings.jpg");
         test.assertVisible("#myModal");
     });

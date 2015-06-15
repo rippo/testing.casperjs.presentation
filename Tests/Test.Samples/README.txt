@@ -1,1 +1,1 @@
-Put tests here
+Put UI tests in this folder
